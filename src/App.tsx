@@ -19,14 +19,11 @@ function App() {
 
   if (!isEditing) {
     return (
-      <div style={{
-        display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-        height: '100vh', width: '100vw', background: 'var(--bg-base)', color: 'white', textAlign: 'center', padding: '2rem'
-      }}>
-        <h1 style={{ fontSize: '5rem', marginBottom: '1rem', background: 'var(--accent-gradient)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', lineHeight: 1.2 }}>
+      <div className="landing-container">
+        <h1 className="landing-title">
           ResumeBuilder
         </h1>
-        <p style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', marginBottom: '3rem', maxWidth: '600px', lineHeight: 1.6 }}>
+        <p className="landing-subtitle">
           Create a stunning, professional resume in minutes with our premium templates and easy-to-use editor.
         </p>
         <button className="glass-button" style={{ padding: '1rem 2.5rem', fontSize: '1.2rem' }} onClick={() => setIsEditing(true)}>
@@ -60,23 +57,12 @@ function App() {
       {/* Main area for preview and controls */}
       <div className="preview-main">
         {/* Top bar controls */}
-        <div className="top-bar glass-panel animate-fade-in no-print" style={{ 
-          width: '100%', 
-          maxWidth: '850px',
-          padding: '1rem 1.5rem', 
-          marginBottom: '2rem',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          position: 'sticky',
-          top: '2rem',
-          zIndex: 10
-        }}>
-          <button className="glass-button secondary" onClick={() => setIsEditing(false)} style={{ padding: '0.5rem 1rem' }}>
+        <div className="top-bar glass-panel animate-fade-in no-print">
+          <button className="glass-button secondary back-button" onClick={() => setIsEditing(false)}>
             ← Back
           </button>
           
-          <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+          <div className="template-selector">
             <LayoutTemplate size={20} color="var(--accent-primary)" />
             <select 
               className="glass-input" 
