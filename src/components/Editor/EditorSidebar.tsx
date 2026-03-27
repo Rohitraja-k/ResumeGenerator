@@ -5,7 +5,10 @@ import SummaryForm from './SummaryForm';
 import ExperienceForm from './ExperienceForm';
 import EducationForm from './EducationForm';
 import SkillsForm from './SkillsForm';
-import { User, FileText, Briefcase, GraduationCap, Wrench, ChevronDown, ChevronUp } from 'lucide-react';
+import ProjectsForm from './ProjectsForm';
+import ActivitiesForm from './ActivitiesForm';
+import CertificationsForm from './CertificationsForm';
+import { User, FileText, Briefcase, GraduationCap, Wrench, ChevronDown, ChevronUp, FolderOpen, Users, Award } from 'lucide-react';
 
 interface Props {
   data: ResumeData;
@@ -124,6 +127,42 @@ const EditorSidebar: React.FC<Props> = ({ data, onChange }) => {
         <SkillsForm 
           skills={data.skills} 
           onChange={(skills: any) => onChange({ ...data, skills })} 
+        />
+      </AccordionItem>
+
+      <AccordionItem 
+        title="Projects" 
+        icon={<FolderOpen size={22} />} 
+        isOpen={openSection === 'projects'} 
+        onToggle={() => toggleSection('projects')}
+      >
+        <ProjectsForm 
+          projects={data.projects} 
+          onChange={(projects: any) => onChange({ ...data, projects })} 
+        />
+      </AccordionItem>
+
+      <AccordionItem 
+        title="Activities" 
+        icon={<Users size={22} />} 
+        isOpen={openSection === 'activities'} 
+        onToggle={() => toggleSection('activities')}
+      >
+        <ActivitiesForm 
+          activities={data.activities} 
+          onChange={(activities: any) => onChange({ ...data, activities })} 
+        />
+      </AccordionItem>
+
+      <AccordionItem 
+        title="Certifications" 
+        icon={<Award size={22} />} 
+        isOpen={openSection === 'certifications'} 
+        onToggle={() => toggleSection('certifications')}
+      >
+        <CertificationsForm 
+          certifications={data.certifications} 
+          onChange={(certifications: any) => onChange({ ...data, certifications })} 
         />
       </AccordionItem>
     </div>

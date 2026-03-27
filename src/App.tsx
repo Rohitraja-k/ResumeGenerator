@@ -87,7 +87,7 @@ function App() {
         {/* Live Preview Container */}
         <div className="preview-container animate-fade-in" style={{ animationDelay: '0.2s' }}>
           {/* We wrap the TemplateRenderer in a div with the ref for printing */}
-          <div ref={componentRef} style={{ height: '100%', minHeight: '1202px', width: '100%' }}>
+          <div ref={componentRef} style={{ height: '100%', width: '100%' }}>
              <TemplateRenderer data={resumeData} template={activeTemplate} />
           </div>
         </div>

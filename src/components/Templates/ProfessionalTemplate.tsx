@@ -65,6 +65,69 @@ const ProfessionalTemplate: React.FC<{ data: ResumeData }> = ({ data }) => {
         </div>
       )}
 
+      {/* Projects */}
+      {data.projects && data.projects.length > 0 && (
+        <div style={{ marginBottom: '1.5rem' }}>
+          <h2 style={{ fontSize: '1.2rem', textTransform: 'uppercase', borderBottom: '1px solid #000', marginBottom: '1rem', paddingBottom: '0.2rem', letterSpacing: '0.05em' }}>
+            Projects
+          </h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            {data.projects.map(proj => (
+              <div key={proj.id}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', fontWeight: 'bold' }}>
+                  <span style={{ fontSize: '1.1rem' }}>{proj.name}</span>
+                  <span style={{ fontStyle: 'italic', fontWeight: 'normal' }}>{proj.technologies}</span>
+                </div>
+                {proj.link && <div style={{ fontSize: '0.9rem', marginBottom: '0.5rem', fontStyle: 'italic' }}>{proj.link}</div>}
+                <p style={{ fontSize: '0.95rem', margin: 0, textAlign: 'justify', whiteSpace: 'pre-wrap' }}>{proj.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Activities */}
+      {data.activities && data.activities.length > 0 && (
+        <div style={{ marginBottom: '1.5rem' }}>
+          <h2 style={{ fontSize: '1.2rem', textTransform: 'uppercase', borderBottom: '1px solid #000', marginBottom: '1rem', paddingBottom: '0.2rem', letterSpacing: '0.05em' }}>
+            Extracurricular Activities
+          </h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            {data.activities.map(act => (
+              <div key={act.id}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', fontWeight: 'bold' }}>
+                  <span style={{ fontSize: '1.1rem' }}>{act.organization}</span>
+                  <span>{act.startDate} - {act.endDate}</span>
+                </div>
+                <div style={{ fontStyle: 'italic', marginBottom: '0.5rem' }}>{act.role}</div>
+                <p style={{ fontSize: '0.95rem', margin: 0, textAlign: 'justify', whiteSpace: 'pre-wrap' }}>{act.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Certifications */}
+      {data.certifications && data.certifications.length > 0 && (
+        <div style={{ marginBottom: '1.5rem' }}>
+          <h2 style={{ fontSize: '1.2rem', textTransform: 'uppercase', borderBottom: '1px solid #000', marginBottom: '1rem', paddingBottom: '0.2rem', letterSpacing: '0.05em' }}>
+            Certifications
+          </h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            {data.certifications.map(cert => (
+              <div key={cert.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+                <div>
+                  <div style={{ fontWeight: 'bold', fontSize: '1.05rem' }}>{cert.name}</div>
+                  <div style={{ fontStyle: 'italic', fontSize: '0.95rem' }}>{cert.issuer}</div>
+                  {cert.link && <div style={{ fontSize: '0.85rem', fontStyle: 'italic', marginTop: '0.2rem' }}>{cert.link}</div>}
+                </div>
+                <div>{cert.date}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* Skills */}
       {data.skills.length > 0 && (
         <div>

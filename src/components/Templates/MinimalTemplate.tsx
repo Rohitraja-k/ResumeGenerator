@@ -65,6 +65,63 @@ const MinimalTemplate: React.FC<{ data: ResumeData }> = ({ data }) => {
         </div>
       )}
 
+      {/* Projects */}
+      {data.projects && data.projects.length > 0 && (
+        <div style={{ marginBottom: '1.5rem' }}>
+          <h2 style={{ fontSize: '1.2rem', fontWeight: 600, color: '#111', borderBottom: '1px solid #eee', paddingBottom: '0.3rem', marginBottom: '1rem' }}>Projects</h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            {data.projects.map(proj => (
+              <div key={proj.id}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '0.2rem' }}>
+                  <span style={{ fontSize: '1.05rem', fontWeight: 600, color: '#111' }}>{proj.name}</span>
+                  <span style={{ fontSize: '0.9rem', color: '#666' }}>{proj.technologies}</span>
+                </div>
+                {proj.link && <div style={{ fontSize: '0.9rem', color: '#555', marginBottom: '0.4rem' }}>{proj.link}</div>}
+                <div style={{ fontSize: '0.9rem', color: '#555', whiteSpace: 'pre-wrap' }}>{proj.description}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Activities */}
+      {data.activities && data.activities.length > 0 && (
+        <div style={{ marginBottom: '1.5rem' }}>
+          <h2 style={{ fontSize: '1.2rem', fontWeight: 600, color: '#111', borderBottom: '1px solid #eee', paddingBottom: '0.3rem', marginBottom: '1rem' }}>Extracurricular Activities</h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            {data.activities.map(act => (
+              <div key={act.id}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '0.2rem' }}>
+                  <span style={{ fontSize: '1.05rem', fontWeight: 600, color: '#111' }}>{act.role}</span>
+                  <span style={{ fontSize: '0.9rem', color: '#666' }}>{act.startDate} – {act.endDate}</span>
+                </div>
+                <div style={{ fontSize: '0.95rem', color: '#444', marginBottom: '0.4rem' }}>{act.organization}</div>
+                <div style={{ fontSize: '0.9rem', color: '#555', whiteSpace: 'pre-wrap' }}>{act.description}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Certifications */}
+      {data.certifications && data.certifications.length > 0 && (
+        <div style={{ marginBottom: '1.5rem' }}>
+          <h2 style={{ fontSize: '1.2rem', fontWeight: 600, color: '#111', borderBottom: '1px solid #eee', paddingBottom: '0.3rem', marginBottom: '1rem' }}>Certifications</h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            {data.certifications.map(cert => (
+              <div key={cert.id}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '0.2rem' }}>
+                  <span style={{ fontSize: '1.05rem', fontWeight: 600, color: '#111' }}>{cert.name}</span>
+                  <span style={{ fontSize: '0.9rem', color: '#666' }}>{cert.date}</span>
+                </div>
+                <div style={{ fontSize: '0.95rem', color: '#444' }}>{cert.issuer}</div>
+                {cert.link && <div style={{ fontSize: '0.9rem', color: '#555', marginTop: '0.2rem' }}>{cert.link}</div>}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* Skills */}
       {data.skills.length > 0 && (
         <div>
